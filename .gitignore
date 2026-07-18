@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Corpora and training data (never publish)
+corpus/
+corpus_segmented/
+v1_1_prep/
+results/
+
+# Benchmark inputs (FLORES-200 has its own license; supply locally)
+benchmark_2026_07/flores200_dataset/
+benchmark_2026_07/flores200_dataset*.tar.gz
+benchmark_2026_07/eval_*.txt
+
+# Logs, backups, local-path artifacts
+*.log
+*.bak
+*.bak_*
+*.bak.*

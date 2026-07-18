@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "akshara-tokenizer"
+version = "0.1.0"
+description = "Linguistically-correct Akshara boundary tokenizer for Brahmic scripts"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Gursimran Singh", email = "gursimranbasra1322@gmail.com" }
+]
+keywords = [
+    "nlp",
+    "tokenizer",
+    "indic",
+    "brahmic",
+    "hindi",
+    "punjabi",
+    "tamil",
+    "telugu",
+    "bengali",
+    "kannada",
+    "akshara",
+    "sentencepiece",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+    "Natural Language :: Hindi",
+    "Natural Language :: Tamil",
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+]
+sentencepiece = [
+    "sentencepiece>=0.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/1322Guru/AksharaTokenizer"
+Repository = "https://github.com/1322Guru/AksharaTokenizer"
+"Bug Tracker" = "https://github.com/1322Guru/AksharaTokenizer/issues"
+"HuggingFace" = "https://huggingface.co/IYRA/akshara-tokenizer"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["akshara_tokenizer*"]
+
+[tool.setuptools.package-data]
+akshara_tokenizer = ["model/*.model", "model/*.vocab"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
