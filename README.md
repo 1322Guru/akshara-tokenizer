@@ -17,13 +17,51 @@ Rule-based segmentation covers six scripts:
 | Bengali    | Bengali                  |
 | Kannada    | Kannada                  |
 
+## Why Akshara instead of BPE?
+
+Byte-level BPE tokenizers split Brahmic text mid-character. A conjunct such as
+ज्ञा, or a consonant plus vowel sign such as ਪੰ, is one orthographic syllable
+(one Akshara), but BPE sees only UTF-8 bytes and cuts wherever its merges fall.
+Captured output below: the same strings through the Qwen3-14B tokenizer and
+through this tokenizer's segmenter. Each BPE token is decoded independently; a
+`�` is a token that holds only a fragment of one character's bytes.
+
+| Input | Qwen3-14B BPE tokens | Akshara segments |
+|-------|----------------------|------------------|
+| ज्ञान (Hindi) | `['ज', '्�', '�', 'ा�', '�']` (5 tokens) | `['ज्ञा', 'न']` (2 units) |
+| ਪੰਜਾਬ (Punjabi) | `['ਪ', '�', '�', 'ਜ', '�', '�', 'ਬ']` (7 tokens) | `['ਪੰ', 'ਜਾ', 'ਬ']` (3 units) |
+| நியாயம் (Tamil) | `['�', '�', 'ி�', '�', '�', '�', 'ய', 'ம', '்']` (9 tokens) | `['நி', 'யா', 'ய', 'ம்']` (4 units) |
+
+No Akshara segment is ever a partial character, and no orthographic syllable is
+split across tokens. The fertility tables below quantify the same effect
+corpus-wide on FLORES-200.
+
+## Pipeline
+
+Two layers: a rule-based Akshara segmenter (pure Unicode rules, no model), then
+a trained SentencePiece model over the segmented sequence. One real example end
+to end, with the actual ids from the shipped 16,000-piece v1.1 model:
+
+```
+Unicode text        "न्याय दर्शन"
+        |
+rule-based akshara segmenter
+        |
+akshara sequence    ['न्या', 'य', ' ', 'द', 'र्श', 'न']
+        |
+SentencePiece (16k vocab, byte_fallback)
+        |
+pieces              ['▁न्या', '▁य', '▁द', '▁र्श', '▁न']
+token ids           [1734, 338, 364, 1398, 270]
+```
+
 ## Model
 
 This release ships one trained SentencePiece model (byte_fallback enabled):
 
 | Model | Vocab | Trained scripts | File |
 |-------|------:|-----------------|------|
-| v1.1 (six-script) | 16,000 | all six, with the anusvara fix | `model/akshara_tokenizer_v1_1.model` |
+| v1.1 (six-script) | 16,000 | all six, with the anusvara fix | `akshara_tokenizer/model/akshara_tokenizer_v1_1.model` |
 
 An earlier 7,000-vocab model trained on Hindi, Punjabi, and Tamil was the originally
 filed artifact and is not distributed in this release.
@@ -43,6 +81,8 @@ FLORES-200 devtest, tokens per whitespace word (lower is better). Numbers from
 | Kannada (Kannada)  | 4.17       | 11.88     |
 | English (info)     | 5.08       | 1.26      |
 
+![Fertility by script on FLORES-200 devtest, AksharaTokenizer v1.1 vs Qwen3-14B](assets/fertility_v1_1.svg)
+
 Byte-fallback rate, percent (lower is better):
 
 | Script  | v1.1 (16k) |
@@ -54,14 +94,20 @@ Byte-fallback rate, percent (lower is better):
 | Bengali | 0.09       |
 | Kannada | 0.36       |
 
+![Byte-fallback rate by script for v1.1](assets/byte_fallback_v1_1.svg)
+
 v1.1 fertility is below Qwen3-14B on all six Indic scripts, and its Telugu, Bengali,
 and Kannada byte-fallback is under 0.4 percent. On English, Qwen3 is more efficient,
 as expected for an English-centric byte-level BPE.
 
+Both charts are generated from `benchmark_2026_07/results_v1_1.csv` by
+`benchmark_2026_07/make_charts_v1_1.py`, so they can be reproduced from the
+shipped data.
+
 ## Install
 
 ```bash
-git clone <REPO_URL>
+git clone https://github.com/1322Guru/akshara-tokenizer
 cd akshara-tokenizer
 pip install .
 pip install sentencepiece   # needed for the trained model
@@ -111,8 +157,6 @@ ids = sp.encode(" ".join(segment_aksharas("न्याय दर्शन")))
 
 ## Limitations (honest)
 
-[GURU: replace or refine this wording. First draft below.]
-
 - Round-trip is not lossless. The tokenizer is encode-optimized. `decode(encode(text))`
   is not guaranteed to be byte-identical, because Akshara segmentation joins units with
   spaces and SentencePiece normalizes whitespace. Use it for tokenization and fertility,
@@ -123,7 +167,10 @@ ids = sp.encode(" ".join(segment_aksharas("न्याय दर्शन")))
 
 ## Run Tests
 
+pytest is not part of the base install; get it via the dev extra, then run the suite:
+
 ```bash
+pip install ".[dev]"
 python -m pytest tests/ -v
 ```
 

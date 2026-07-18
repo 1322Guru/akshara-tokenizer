@@ -50,10 +50,9 @@ sentencepiece = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/1322Guru/AksharaTokenizer"
-Repository = "https://github.com/1322Guru/AksharaTokenizer"
-"Bug Tracker" = "https://github.com/1322Guru/AksharaTokenizer/issues"
-"HuggingFace" = "https://huggingface.co/IYRA/akshara-tokenizer"
+Homepage = "https://github.com/1322Guru/akshara-tokenizer"
+Repository = "https://github.com/1322Guru/akshara-tokenizer"
+"Bug Tracker" = "https://github.com/1322Guru/akshara-tokenizer/issues"
 
 [tool.setuptools]
 include-package-data = true
