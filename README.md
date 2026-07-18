@@ -106,12 +106,17 @@ shipped data.
 
 ## Install
 
+Requires Python >=3.10 (as declared in `pyproject.toml`).
+
 ```bash
 git clone https://github.com/1322Guru/akshara-tokenizer
 cd akshara-tokenizer
-pip install .
-pip install sentencepiece   # needed for the trained model
+pip install .             # rule-based segmenter only
+pip install ".[model]"    # includes sentencepiece, needed for the trained model
 ```
+
+The base install is all you need for `segment_aksharas` and `count_aksharas`.
+The `model` extra is needed to encode with the trained SentencePiece model.
 
 ## Usage
 
@@ -184,6 +189,12 @@ python -m pytest tests/ -v
 | Telugu     | Yes | Conjuncts via virama |
 | Bengali    | Yes | Hasanta conjuncts |
 | Kannada    | Yes | Conjuncts via virama |
+
+## Direction
+
+Akshara-based segmentation is one instance of a more general idea: tokenizing
+on the orthographic units a writing system is built from, rather than on bytes.
+The same principle extends to other syllable-block writing systems.
 
 ## Patent and Copyright
 

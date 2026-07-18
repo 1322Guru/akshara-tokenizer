@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "akshara-tokenizer"
-version = "0.1.0"
+version = "1.1.0"
 description = "Linguistically-correct Akshara boundary tokenizer for Brahmic scripts"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -45,7 +45,7 @@ dependencies = []
 dev = [
     "pytest>=7.0",
 ]
-sentencepiece = [
+model = [
     "sentencepiece>=0.2.0",
 ]
 
