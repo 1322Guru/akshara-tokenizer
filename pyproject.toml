@@ -53,6 +53,7 @@ model = [
 Homepage = "https://github.com/1322Guru/akshara-tokenizer"
 Repository = "https://github.com/1322Guru/akshara-tokenizer"
 "Bug Tracker" = "https://github.com/1322Guru/akshara-tokenizer/issues"
+"HuggingFace" = "https://huggingface.co/GursimranSinghBasra/akshara-tokenizer"
 
 [tool.setuptools]
 include-package-data = true

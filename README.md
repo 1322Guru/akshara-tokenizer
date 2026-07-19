@@ -85,7 +85,7 @@ FLORES-200 devtest, tokens per whitespace word (lower is better). Numbers from
 | Kannada (Kannada)  | 4.17       | 11.88     |
 | English (info)     | 5.08       | 1.26      |
 
-![Fertility by script on FLORES-200 devtest, AksharaTokenizer v1.1 vs Qwen3-14B](assets/fertility_v1_1.svg)
+![Fertility by script on FLORES-200 devtest, AksharaTokenizer v1.1 vs Qwen3-14B](https://raw.githubusercontent.com/1322Guru/akshara-tokenizer/e0f893394b9d96d2f47044e7d80556ec499a15e7/assets/fertility_v1_1.svg)
 
 Byte-fallback rate, percent (lower is better):
 
@@ -98,7 +98,7 @@ Byte-fallback rate, percent (lower is better):
 | Bengali | 0.09       |
 | Kannada | 0.36       |
 
-![Byte-fallback rate by script for v1.1](assets/byte_fallback_v1_1.svg)
+![Byte-fallback rate by script for v1.1](https://raw.githubusercontent.com/1322Guru/akshara-tokenizer/e0f893394b9d96d2f47044e7d80556ec499a15e7/assets/byte_fallback_v1_1.svg)
 
 v1.1 fertility is below Qwen3-14B on all six Indic scripts, and its Telugu, Bengali,
 and Kannada byte-fallback is under 0.4 percent. On English, Qwen3 is more efficient,
