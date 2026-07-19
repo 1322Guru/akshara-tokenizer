@@ -102,3 +102,30 @@ Notes:
 ## Summary
 - The v1.1 segmentation fix plus six-script training gives large gains on Telugu, Bengali, and Kannada (fertility down 50 to 82 percent, byte-fallback down from 23 to 80 percent to under 0.4 percent) while leaving Hindi, Punjabi, Tamil, and English essentially unchanged.
 - The achievable vocabulary is capped near the distinct-akshara count (about 17,145 at this sample size; 70,236 union across six scripts), so the akshara-constrained unigram design cannot reach a 64k or 128k vocabulary from this corpus. 16k is a representative in-budget candidate.
+
+## Akshara split rate (added 2026-07-19)
+
+FLORES-200 devtest, same eval files as the fertility numbers above, shipped v1.1 (16k) model.
+
+Definition: an akshara is "split" when the model's token boundaries fall inside it, whether via
+sub-akshara pieces or via byte_fallback pieces. The two mechanisms are counted separately.
+Method: each line is segmented and space-joined exactly as in the v1.1 encode pipeline; piece
+boundaries are read as UTF-8 byte offsets from SentencePiece proto output and compared against each
+akshara's byte span. Byte pieces carry zero-width spans, so byte-tiled characters are additionally
+detected by a byte piece beginning inside the span. Reproduce with `measure_split_v1_1.py` in this
+directory (requires the protobuf package).
+
+| script     | aksharas | split | split % | sub-piece | byte-fallback |
+|------------|---------:|------:|--------:|----------:|--------------:|
+| devanagari |   61,398 | 1,038 |   1.691 |       876 |           162 |
+| gurmukhi   |   68,467 |   640 |   0.935 |       470 |           170 |
+| tamil      |   83,861 |   123 |   0.147 |       117 |             6 |
+| telugu     |   60,639 | 2,214 |   3.651 |     2,197 |            17 |
+| bengali    |   63,842 | 1,115 |   1.746 |     1,095 |            20 |
+| kannada    |   64,996 | 2,353 |   3.620 |     2,273 |            80 |
+| OVERALL    |  403,203 | 7,483 |   1.856 |     7,028 |           455 |
+
+Reading: the rule-based segmenter itself never splits an akshara (that layer is exact). The splits
+counted here happen at the SentencePiece layer, where aksharas absent from the 16,000-piece
+vocabulary decompose into sub-akshara pieces or byte-fallback pieces. Telugu and Kannada carry the
+highest rates, consistent with their larger conjunct inventories.

@@ -32,9 +32,13 @@ through this tokenizer's segmenter. Each BPE token is decoded independently; a
 | ਪੰਜਾਬ (Punjabi) | `['ਪ', '�', '�', 'ਜ', '�', '�', 'ਬ']` (7 tokens) | `['ਪੰ', 'ਜਾ', 'ਬ']` (3 units) |
 | நியாயம் (Tamil) | `['�', '�', 'ி�', '�', '�', '�', 'ய', 'ம', '்']` (9 tokens) | `['நி', 'யா', 'ய', 'ம்']` (4 units) |
 
-No Akshara segment is ever a partial character, and no orthographic syllable is
-split across tokens. The fertility tables below quantify the same effect
-corpus-wide on FLORES-200.
+The rule-based segmenter never splits an Akshara: that guarantee is exact, for
+every input. At the SentencePiece layer the guarantee is statistical, not
+absolute: aksharas too rare for the 16,000-piece vocabulary decompose into
+sub-pieces or byte-fallback pieces, measured at 1.86 percent of aksharas overall
+on FLORES-200 devtest (0.15 to 3.65 percent by script; see
+`benchmark_2026_07/results_v1_1.md`). The fertility tables below quantify the
+efficiency effect corpus-wide.
 
 ## Pipeline
 
