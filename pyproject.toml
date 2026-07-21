@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "akshara-tokenizer"
-version = "1.1.0"
+version = "1.2.0"
 description = "Linguistically-correct Akshara boundary tokenizer for Brahmic scripts"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -63,7 +63,10 @@ where = ["."]
 include = ["akshara_tokenizer*"]
 
 [tool.setuptools.package-data]
-akshara_tokenizer = ["model/*.model", "model/*.vocab"]
+akshara_tokenizer = [
+    "model/akshara_tokenizer_v1_2.model",
+    "model/akshara_tokenizer_v1_2.map.json",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
