@@ -1,0 +1,107 @@
+[
+ {
+  "script": "beng",
+  "pre": "ড়",
+  "pre_pua": 63334,
+  "dec": "ড়",
+  "dec_pua": 58171
+ },
+ {
+  "script": "beng",
+  "pre": "য়",
+  "pre_pua": 60969,
+  "dec": "য়",
+  "dec_pua": 57448
+ },
+ {
+  "script": "deva",
+  "pre": "ऱ",
+  "pre_pua": 991126,
+  "dec": "ऱ",
+  "dec_pua": 983942
+ },
+ {
+  "script": "deva",
+  "pre": "ज़",
+  "pre_pua": 985693,
+  "dec": "ज़",
+  "dec_pua": 58888
+ },
+ {
+  "script": "deva",
+  "pre": "ड़",
+  "pre_pua": 986334,
+  "dec": "ड़",
+  "dec_pua": 58032
+ },
+ {
+  "script": "deva",
+  "pre": "ढ़",
+  "pre_pua": 990788,
+  "dec": "ढ़",
+  "dec_pua": 58595
+ },
+ {
+  "script": "deva",
+  "pre": "फ़",
+  "pre_pua": 987677,
+  "dec": "फ़",
+  "dec_pua": 59954
+ },
+ {
+  "script": "guru",
+  "pre": "ਸ਼",
+  "pre_pua": 983997,
+  "dec": "ਸ਼",
+  "dec_pua": 57534
+ },
+ {
+  "script": "guru",
+  "pre": "ਸ਼ਾ",
+  "pre_pua": 988545,
+  "dec": "ਸ਼ਾ",
+  "dec_pua": 57926
+ },
+ {
+  "script": "guru",
+  "pre": "ਸ਼ੁ",
+  "pre_pua": 991129,
+  "dec": "ਸ਼ੁ",
+  "dec_pua": 58438
+ },
+ {
+  "script": "guru",
+  "pre": "ਜ਼",
+  "pre_pua": 985375,
+  "dec": "ਜ਼",
+  "dec_pua": 57718
+ },
+ {
+  "script": "taml",
+  "pre": "கொ",
+  "pre_pua": 57704,
+  "dec": "கொ",
+  "dec_pua": 987540
+ },
+ {
+  "script": "taml",
+  "pre": "சொ",
+  "pre_pua": 58287,
+  "dec": "சொ",
+  "dec_pua": 990483
+ },
+ {
+  "script": "taml",
+  "pre": "தொ",
+  "pre_pua": 57915,
+  "dec": "தொ",
+  "dec_pua": 988806
+ },
+ {
+  "script": "taml",
+  "pre": "போ",
+  "pre_pua": 57659,
+  "dec": "போ",
+  "dec_pua": 986199
+ }
+]

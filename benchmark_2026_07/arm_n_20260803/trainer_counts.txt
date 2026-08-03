@@ -1,0 +1,22 @@
+# Trainer sentence counts, extracted from the SentencePiece logs of the four arms.
+# Evidence that every arm trained on the identical corpus size, so no arm gained or
+# lost training mass. Absolute paths stripped. Source logs are not vendored.
+#
+# All four figures must agree: 5997116 loaded, 2884 skipped.
+
+=== arm 0'  (frozen base set, unmodified) ===
+  trainer_interface.cc(411) LOG(INFO) Loaded all 5997116 sentences
+  trainer_interface.cc(418) LOG(INFO) Skipped 2884 too long sentences.
+
+=== arm N-a (substitution, f = 0.10) ===
+  trainer_interface.cc(411) LOG(INFO) Loaded all 5997116 sentences
+  trainer_interface.cc(418) LOG(INFO) Skipped 2884 too long sentences.
+
+=== arm N-b (substitution, f = 0.25) ===
+  trainer_interface.cc(411) LOG(INFO) Loaded all 5997116 sentences
+  trainer_interface.cc(418) LOG(INFO) Skipped 2884 too long sentences.
+
+=== arm N-c (substitution, f = 0.50) ===
+  trainer_interface.cc(411) LOG(INFO) Loaded all 5997116 sentences
+  trainer_interface.cc(418) LOG(INFO) Skipped 2884 too long sentences.
+

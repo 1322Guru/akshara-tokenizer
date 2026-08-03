@@ -1,0 +1,48 @@
+{
+ "label": "armNc",
+ "model": "models/armNc.model",
+ "categories": {
+  "romanized_hindi": {
+   "n": 600,
+   "tokens": 28732,
+   "words": 11137,
+   "fertility": 2.579868905450301,
+   "roundtrip_ok": 600
+  },
+  "romanized_punjabi": {
+   "n": 600,
+   "tokens": 31227,
+   "words": 11224,
+   "fertility": 2.7821632216678545,
+   "roundtrip_ok": 600
+  },
+  "romanized_tamil": {
+   "n": 600,
+   "tokens": 29414,
+   "words": 6572,
+   "fertility": 4.475654290931224,
+   "roundtrip_ok": 600
+  },
+  "hinglish_findnitai_human": {
+   "n": 600,
+   "tokens": 22159,
+   "words": 9278,
+   "fertility": 2.3883380038801465,
+   "roundtrip_ok": 600
+  },
+  "hinglish_cmu_28jul": {
+   "n": 200,
+   "tokens": 6134,
+   "words": 2612,
+   "fertility": 2.3483920367534457,
+   "roundtrip_ok": 200
+  },
+  "english_flores200": {
+   "n": 200,
+   "tokens": 9556,
+   "words": 4384,
+   "fertility": 2.1797445255474455,
+   "roundtrip_ok": 200
+  }
+ }
+}

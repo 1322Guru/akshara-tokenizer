@@ -1,0 +1,206 @@
+{
+ "label": "armNb",
+ "model": "models/armNb.model",
+ "scripts": {
+  "devanagari": {
+   "as_is": {
+    "tokens": 35215,
+    "words": 25643,
+    "fertility": 1.3732792574971726,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   },
+   "split": {
+    "aksharas": 61398,
+    "split": 56,
+    "split_pct": 0.09120818267696017,
+    "subpiece": 56,
+    "bytefallback": 0
+   },
+   "delta_vs_published_pct": -0.052455786231986774,
+   "NFC": {
+    "tokens": 35071,
+    "words": 25643,
+    "fertility": 1.367663689895878,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   },
+   "NFD": {
+    "tokens": 35071,
+    "words": 25643,
+    "fertility": 1.367663689895878,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   }
+  },
+  "gurmukhi": {
+   "as_is": {
+    "tokens": 36655,
+    "words": 25906,
+    "fertility": 1.4149231838184204,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   },
+   "split": {
+    "aksharas": 68467,
+    "split": 224,
+    "split_pct": 0.32716491156323485,
+    "subpiece": 224,
+    "bytefallback": 0
+   },
+   "delta_vs_published_pct": -2.081440566199283,
+   "NFC": {
+    "tokens": 35367,
+    "words": 25906,
+    "fertility": 1.3652049718211998,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   },
+   "NFD": {
+    "tokens": 35367,
+    "words": 25906,
+    "fertility": 1.3652049718211998,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   }
+  },
+  "tamil": {
+   "as_is": {
+    "tokens": 32812,
+    "words": 16775,
+    "fertility": 1.956005961251863,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   },
+   "split": {
+    "aksharas": 83861,
+    "split": 0,
+    "split_pct": 0.0,
+    "subpiece": 0,
+    "bytefallback": 0
+   },
+   "delta_vs_published_pct": 0.15391506665964777,
+   "NFC": {
+    "tokens": 32808,
+    "words": 16775,
+    "fertility": 1.9557675111773472,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   },
+   "NFD": {
+    "tokens": 37476,
+    "words": 16775,
+    "fertility": 2.2340387481371087,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   }
+  },
+  "telugu": {
+   "as_is": {
+    "tokens": 33875,
+    "words": 16938,
+    "fertility": 1.9999409611524384,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   },
+   "split": {
+    "aksharas": 60639,
+    "split": 37,
+    "split_pct": 0.06101683734890087,
+    "subpiece": 37,
+    "bytefallback": 0
+   },
+   "delta_vs_published_pct": -0.05292547963825753,
+   "NFC": {
+    "tokens": 33868,
+    "words": 16938,
+    "fertility": 1.9995276892195064,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   },
+   "NFD": {
+    "tokens": 35167,
+    "words": 16938,
+    "fertility": 2.076219152202149,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   }
+  },
+  "bengali": {
+   "as_is": {
+    "tokens": 34687,
+    "words": 19506,
+    "fertility": 1.778273351789193,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   },
+   "split": {
+    "aksharas": 63842,
+    "split": 46,
+    "split_pct": 0.07205288054885499,
+    "subpiece": 46,
+    "bytefallback": 0
+   },
+   "delta_vs_published_pct": -1.042106188692645,
+   "NFC": {
+    "tokens": 32978,
+    "words": 19506,
+    "fertility": 1.6906592843227726,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   },
+   "NFD": {
+    "tokens": 37944,
+    "words": 19506,
+    "fertility": 1.9452476161181176,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   }
+  },
+  "kannada": {
+   "as_is": {
+    "tokens": 33125,
+    "words": 16100,
+    "fertility": 2.0574534161490683,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   },
+   "split": {
+    "aksharas": 64996,
+    "split": 74,
+    "split_pct": 0.1138531601944735,
+    "subpiece": 74,
+    "bytefallback": 0
+   },
+   "delta_vs_published_pct": -0.026558982066644164,
+   "NFC": {
+    "tokens": 33089,
+    "words": 16100,
+    "fertility": 2.055217391304348,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   },
+   "NFD": {
+    "tokens": 44354,
+    "words": 16100,
+    "fertility": 2.7549068322981367,
+    "roundtrip_ok": 1012,
+    "n": 1012
+   }
+  }
+ },
+ "vocab": {
+  "vocab_size": 64000,
+  "counts": {
+   "special": 4,
+   "byte_fallback": 256,
+   "indic": 58932,
+   "latin": 2253,
+   "digit": 517,
+   "other": 2038
+  },
+  "indic_pct": 92.08125,
+  "latin_pct": 3.5203125,
+  "latin_mean_len": 3.4505104305370615
+ }
+}
