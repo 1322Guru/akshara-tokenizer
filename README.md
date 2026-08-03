@@ -5,6 +5,9 @@ a rule-based Akshara segmenter that never splits an orthographic syllable, and a
 trained SentencePiece model on top of it. Version 1.2 makes the model layer lossless:
 `decode(encode(text))` returns the original text, byte for byte.
 
+Against sarvam-1, the closest Indic-specific tokenizer by vocabulary budget, v1.2 uses
+fewer tokens on all six supported scripts. See Fertility below.
+
 ## Supported Scripts
 
 Rule-based segmentation covers six scripts:
@@ -121,6 +124,87 @@ Qwen3-14B. On English, Qwen3 is more efficient, as expected for an English-centr
 byte-level BPE. Byte-fallback under v1.2 is near zero on all six scripts (0.00 to 0.04
 percent).
 
+### Against Indic-specific tokenizers
+
+Qwen3-14B is a general multilingual BPE and a weak baseline for an Indic claim. The
+comparison that matters is against tokenizers built for Indian languages. Same FLORES-200
+devtest, 1,012 lines per script, tokens per whitespace word.
+
+| Script     | v1.2 (64k) | sarvam-1 (68k) | sarvam-30b (262k) | Krutrim-2 (131k) |
+|------------|-----------:|---------------:|------------------:|-----------------:|
+| Devanagari | **1.374**  | 1.402          | 1.386             | 1.950            |
+| Gurmukhi   | **1.445**  | 1.683          | 1.631             | 3.187            |
+| Tamil      | **1.953**  | 2.169          | 2.374             | 3.614            |
+| Telugu     | **2.001**  | 2.140          | 2.326             | 3.714            |
+| Bengali    | 1.797      | 2.065          | **1.684**         | 2.927            |
+| Kannada    | **2.058**  | 2.377          | 2.542             | 3.820            |
+
+Budget-matched against sarvam-1 (68,096 slots, the closest budget to v1.2's 64,000),
+v1.2 uses fewer tokens on all six scripts: Devanagari -2.00, Gurmukhi -14.15, Tamil
+-9.96, Telugu -6.52, Bengali -12.97, Kannada -13.40 percent.
+
+Against sarvam-30b (262,144 slots, 4.1x the budget), v1.2 wins five of six: Devanagari
+-0.85, Gurmukhi -11.43, Tamil -17.74, Telugu -13.99, Bengali +6.76, Kannada -19.02
+percent.
+
+**One caveat, stated plainly: sarvam and Krutrim are full LLM tokenizers carrying
+English, code and multilingual coverage in one vocabulary, while v1.2 spends 91.94
+percent of its 64,000 slots on Indic aksharas. A native-script win therefore partly
+reflects that specialisation, not engineering alone.**
+
+### Round-trip across tokenizers
+
+Byte-identical `decode(encode(x))` out of 1,012 lines per script.
+
+| Script     | v1.2 | Qwen3-14B | sarvam-1 |
+|------------|-----:|----------:|---------:|
+| Devanagari | 1012 | 919       | 1007     |
+| Gurmukhi   | 1012 | 439       | 1012     |
+| Tamil      | 1012 | 1010      | 1012     |
+| Telugu     | 1012 | 1011      | 1001     |
+| Bengali    | 1012 | 403       | 1012     |
+| Kannada    | 1012 | 1005      | 999      |
+
+Qwen3's shortfall is not data loss. Qwen3 applies Unicode NFC normalization inside its
+tokenizer, so for text containing canonical-decomposition singletons, mainly nukta
+characters, the output is canonically equivalent to the input and renders identically
+but is not byte-identical. That is a reasonable design choice, verified against stock
+`Qwen/Qwen3-14B`. The tradeoff is explicit: NFC gives canonicalization, byte-preservation
+gives exact reconstruction. This tokenizer chooses the latter.
+
+### Latin and romanized input
+
+This tokenizer is built for native Brahmic script and the numbers above reflect that. On
+Latin-script input the advantage inverts, and this is a design consequence rather than a
+bug: 91.94 percent of the vocabulary is Indic aksharas, which leaves little room for
+Latin pieces.
+
+On Dakshina human romanizations, 600 matched sentence pairs per language, v1.2 uses more
+tokens than Qwen3-14B: romanized Hindi +23.4, Punjabi +16.0, Tamil +12.8 percent.
+
+On code-switched Hinglish, 600 human-written sentences, tokens per whitespace word:
+
+| Tokenizer  | vocab   | Hinglish |
+|------------|--------:|---------:|
+| sarvam-30b | 262,144 | 1.448    |
+| Krutrim-2  | 131,072 | 1.696    |
+| Qwen3-14B  | 151,670 | 1.733    |
+| sarvam-1   |  68,096 | 2.261    |
+| v1.2       |  64,000 | 2.377    |
+
+The ordering tracks vocabulary size closely, which suggests a budget constraint rather
+than a defect: at 64,000 slots, covering six Brahmic scripts at akshara granularity and
+covering Latin well are competing demands. The only competitor at a comparable budget,
+sarvam-1, is 4.9 percent better on Hinglish while using more tokens than v1.2 on all six
+native scripts and on all three romanized languages.
+
+If your workload is predominantly romanized or code-switched Latin text, a large
+general-purpose tokenizer will serve you better. If it is native script, this one will
+not.
+
+Detail in `benchmark_2026_07/results_dakshina_romanized.md` and
+`results_competitor_comparison.md`.
+
 ## Akshara split rate
 
 FLORES-200 devtest, percent of aksharas whose token boundaries fall inside them (lower
@@ -142,6 +226,21 @@ is better). Numbers from `benchmark_2026_07/results_v1_2.md`, reproducible with
 Both charts are generated from `benchmark_2026_07/results_v1_2_fertility.csv` and
 `results_v1_2_split.csv` by `benchmark_2026_07/make_charts_v1_2.py`, so they reproduce
 from the shipped data.
+
+## Benchmarks and results
+
+Every number above traces to a results file in this repository:
+
+- `benchmark_2026_07/results_v1_2.md` fertility and split rate against v1.1 and Qwen3
+- `benchmark_2026_07/results_competitor_comparison.md` against sarvam-1, sarvam-30b and Krutrim-2
+- `benchmark_2026_07/results_bengali_diagnostic.md` normalization robustness
+- `benchmark_2026_07/results_qwen_roundtrip_check.md` Qwen3 round-trip verified against stock
+- `benchmark_2026_07/results_dakshina_romanized.md` romanized Indic on Dakshina
+- `benchmark_2026_07/groundtruth_20260801/` the scripts and raw output behind the competitor numbers
+
+Evaluation corpora are third-party and are not vendored here. They are referenced by
+selection rule and by hash manifest, so the sets are reproducible without redistributing
+the text.
 
 ## Install
 
@@ -211,14 +310,30 @@ and its index, since those collide with the internal mapping alphabet.
    preceding Akshara.
 6. Latin letters, digits, and punctuation are one token each.
 
-## Gurmukhi precomposed nukta letters
+## Precomposed nukta letters (Gurmukhi and Bengali)
 
-Precomposed Gurmukhi nukta letters (U+0A36 SHA, U+0A5E FA, U+0A59 KHHA) encode to 2 or
-3 pieces rather than 1, because the map holds their decomposed equivalents (for example
-SHA as U+0A38 followed by U+0A3C). This costs tokens, never correctness: these aksharas
-carry zero byte-fallback and round-trip remains byte-identical. On FLORES-200 it affects
-0.33 percent of Gurmukhi aksharas. Users who prefer efficiency over byte-identity may
-NFC-normalize their input before encoding.
+Precomposed nukta letters encode to 2 or 3 pieces rather than 1, because the map holds
+their decomposed equivalents: Gurmukhi U+0A36 SHA as U+0A38 followed by U+0A3C, Bengali
+U+09DF YYA as U+09AF followed by U+09BC. This costs tokens, never correctness: these
+aksharas carry zero byte-fallback and round-trip remains byte-identical. On FLORES-200 it
+affects 0.33 percent of Gurmukhi aksharas.
+
+Gurmukhi and Bengali pay the same penalty, and NFC-normalizing the input recovers it:
+
+| Script   | as is  | NFC    | change        |
+|----------|-------:|-------:|--------------:|
+| Gurmukhi | 1.4446 | 1.3619 | -5.72 percent |
+| Bengali  | 1.7973 | 1.6912 | -5.90 percent |
+
+Round-trip is unaffected by normalization form: 1,012 of 1,012 lines in all eighteen
+cells, six scripts across as-is, NFC and NFD input.
+
+NFD input goes the other way and costs tokens, up to 33.61 percent on Kannada. That is
+not specific to this tokenizer: sarvam-1 degrades 37.91 percent on the same input, so it
+is a general Brahmic-NFD effect. Under NFD, Bengali is the single cell where v1.2 loses
+to the budget-matched sarvam-1, by 1.85 percent.
+
+Detail in `benchmark_2026_07/results_bengali_diagnostic.md`.
 
 ## Versions and compatibility
 
