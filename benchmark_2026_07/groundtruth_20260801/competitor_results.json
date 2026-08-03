@@ -1,0 +1,575 @@
+{
+ "vocab": {
+  "v1.2 (64k)": 64000,
+  "sarvam-1": 68096,
+  "sarvam-30b": 262144,
+  "Krutrim-2": 131072,
+  "Qwen3-14B": 151670
+ },
+ "results": {
+  "native_devanagari": {
+   "n": 1012,
+   "words": 25643,
+   "chars": 131079,
+   "tok": {
+    "v1.2 (64k)": {
+     "tokens": 35235,
+     "fertility": 1.374059197441797,
+     "tok_per_100char": 26.88073604467535,
+     "bytefallback_pct": 0.017028522775649212,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "sarvam-1": {
+     "tokens": 35954,
+     "fertility": 1.4020980384510393,
+     "tok_per_100char": 27.429260217120973,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1007,
+     "n": 1012
+    },
+    "sarvam-30b": {
+     "tokens": 35537,
+     "fertility": 1.3858362906056234,
+     "tok_per_100char": 27.11113145507671,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "Krutrim-2": {
+     "tokens": 50001,
+     "fertility": 1.949888858557891,
+     "tok_per_100char": 38.14569839562402,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "Qwen3-14B": {
+     "tokens": 121973,
+     "fertility": 4.756580743282767,
+     "tok_per_100char": 93.053044347302,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 919,
+     "n": 1012
+    }
+   }
+  },
+  "native_gurmukhi": {
+   "n": 1012,
+   "words": 25906,
+   "chars": 133425,
+   "tok": {
+    "v1.2 (64k)": {
+     "tokens": 37423,
+     "fertility": 1.4445688257546514,
+     "tok_per_100char": 28.047967022671912,
+     "bytefallback_pct": 0.04008230232744569,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "sarvam-1": {
+     "tokens": 43590,
+     "fertility": 1.6826217864587354,
+     "tok_per_100char": 32.67003934794828,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "sarvam-30b": {
+     "tokens": 42253,
+     "fertility": 1.6310121207442292,
+     "tok_per_100char": 31.667978264942853,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "Krutrim-2": {
+     "tokens": 82569,
+     "fertility": 3.1872539180112716,
+     "tok_per_100char": 61.884204609331086,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "Qwen3-14B": {
+     "tokens": 200987,
+     "fertility": 7.7583185362464295,
+     "tok_per_100char": 150.63668727749672,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 439,
+     "n": 1012
+    }
+   }
+  },
+  "native_tamil": {
+   "n": 1012,
+   "words": 16775,
+   "chars": 154133,
+   "tok": {
+    "v1.2 (64k)": {
+     "tokens": 32766,
+     "fertility": 1.9532637853949328,
+     "tok_per_100char": 21.258263966833837,
+     "bytefallback_pct": 0.0,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "sarvam-1": {
+     "tokens": 36390,
+     "fertility": 2.1692995529061103,
+     "tok_per_100char": 23.609480124308227,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "sarvam-30b": {
+     "tokens": 39830,
+     "fertility": 2.3743666169895676,
+     "tok_per_100char": 25.841318860983694,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "Krutrim-2": {
+     "tokens": 60618,
+     "fertility": 3.613591654247392,
+     "tok_per_100char": 39.32837224993999,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "Qwen3-14B": {
+     "tokens": 168828,
+     "fertility": 10.064262295081967,
+     "tok_per_100char": 109.53397390565291,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1010,
+     "n": 1012
+    }
+   }
+  },
+  "native_telugu": {
+   "n": 1012,
+   "words": 16938,
+   "chars": 132505,
+   "tok": {
+    "v1.2 (64k)": {
+     "tokens": 33886,
+     "fertility": 2.000590388475617,
+     "tok_per_100char": 25.573374589638128,
+     "bytefallback_pct": 0.017706427433158235,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "sarvam-1": {
+     "tokens": 36250,
+     "fertility": 2.1401582241114654,
+     "tok_per_100char": 27.357458209124182,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1001,
+     "n": 1012
+    },
+    "sarvam-30b": {
+     "tokens": 39400,
+     "fertility": 2.3261305939308063,
+     "tok_per_100char": 29.734726991434286,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "Krutrim-2": {
+     "tokens": 62907,
+     "fertility": 3.7139567835635847,
+     "tok_per_100char": 47.47518961548621,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "Qwen3-14B": {
+     "tokens": 193195,
+     "fertility": 11.40601015468178,
+     "tok_per_100char": 145.8020452058413,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1011,
+     "n": 1012
+    }
+   }
+  },
+  "native_bengali": {
+   "n": 1012,
+   "words": 19506,
+   "chars": 129042,
+   "tok": {
+    "v1.2 (64k)": {
+     "tokens": 35059,
+     "fertility": 1.7973444068491746,
+     "tok_per_100char": 27.168673765130734,
+     "bytefallback_pct": 0.0,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "sarvam-1": {
+     "tokens": 40283,
+     "fertility": 2.0651594381216034,
+     "tok_per_100char": 31.216968118907023,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "sarvam-30b": {
+     "tokens": 32840,
+     "fertility": 1.6835845380908439,
+     "tok_per_100char": 25.44907859456611,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "Krutrim-2": {
+     "tokens": 57089,
+     "fertility": 2.9267404901056087,
+     "tok_per_100char": 44.24063483207018,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "Qwen3-14B": {
+     "tokens": 138814,
+     "fertility": 7.116476981441608,
+     "tok_per_100char": 107.57272825901644,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 403,
+     "n": 1012
+    }
+   }
+  },
+  "native_kannada": {
+   "n": 1012,
+   "words": 16100,
+   "chars": 138140,
+   "tok": {
+    "v1.2 (64k)": {
+     "tokens": 33139,
+     "fertility": 2.0583229813664596,
+     "tok_per_100char": 23.989431012016794,
+     "bytefallback_pct": 0.009052777693955762,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "sarvam-1": {
+     "tokens": 38265,
+     "fertility": 2.3767080745341613,
+     "tok_per_100char": 27.700159258723033,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 999,
+     "n": 1012
+    },
+    "sarvam-30b": {
+     "tokens": 40924,
+     "fertility": 2.5418633540372673,
+     "tok_per_100char": 29.625018097582164,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "Krutrim-2": {
+     "tokens": 61494,
+     "fertility": 3.819503105590062,
+     "tok_per_100char": 44.51570870131751,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1012,
+     "n": 1012
+    },
+    "Qwen3-14B": {
+     "tokens": 191209,
+     "fertility": 11.876335403726708,
+     "tok_per_100char": 138.41682351237876,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 1005,
+     "n": 1012
+    }
+   }
+  },
+  "romanized_hindi": {
+   "n": 600,
+   "words": 11137,
+   "chars": 64240,
+   "tok": {
+    "v1.2 (64k)": {
+     "tokens": 28670,
+     "fertility": 2.574301876627458,
+     "tok_per_100char": 44.62951432129514,
+     "bytefallback_pct": 0.0,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "sarvam-1": {
+     "tokens": 28881,
+     "fertility": 2.5932477327826167,
+     "tok_per_100char": 44.9579701120797,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "sarvam-30b": {
+     "tokens": 19686,
+     "fertility": 1.7676214420400467,
+     "tok_per_100char": 30.64445828144458,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "Krutrim-2": {
+     "tokens": 22416,
+     "fertility": 2.0127502918200593,
+     "tok_per_100char": 34.89414694894147,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "Qwen3-14B": {
+     "tokens": 23228,
+     "fertility": 2.0856604112418067,
+     "tok_per_100char": 36.15815691158157,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    }
+   }
+  },
+  "romanized_punjabi": {
+   "n": 600,
+   "words": 11224,
+   "chars": 69992,
+   "tok": {
+    "v1.2 (64k)": {
+     "tokens": 31135,
+     "fertility": 2.773966500356379,
+     "tok_per_100char": 44.483655274888555,
+     "bytefallback_pct": 0.019270916974466035,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "sarvam-1": {
+     "tokens": 32723,
+     "fertility": 2.915449037776194,
+     "tok_per_100char": 46.75248599839982,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "sarvam-30b": {
+     "tokens": 23006,
+     "fertility": 2.049714896650036,
+     "tok_per_100char": 32.869470796662476,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "Krutrim-2": {
+     "tokens": 25669,
+     "fertility": 2.286974340698503,
+     "tok_per_100char": 36.6741913361527,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "Qwen3-14B": {
+     "tokens": 26851,
+     "fertility": 2.3922843905915894,
+     "tok_per_100char": 38.3629557663733,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    }
+   }
+  },
+  "romanized_tamil": {
+   "n": 600,
+   "words": 6572,
+   "chars": 66734,
+   "tok": {
+    "v1.2 (64k)": {
+     "tokens": 29818,
+     "fertility": 4.537127206329885,
+     "tok_per_100char": 44.68187130997692,
+     "bytefallback_pct": 0.0,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "sarvam-1": {
+     "tokens": 30950,
+     "fertility": 4.709373097991479,
+     "tok_per_100char": 46.378158060359034,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "sarvam-30b": {
+     "tokens": 23334,
+     "fertility": 3.5505173463177115,
+     "tok_per_100char": 34.96568465849492,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "Krutrim-2": {
+     "tokens": 25477,
+     "fertility": 3.8765976871576386,
+     "tok_per_100char": 38.17694128929781,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "Qwen3-14B": {
+     "tokens": 26429,
+     "fertility": 4.02145465611686,
+     "tok_per_100char": 39.603500464530825,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    }
+   }
+  },
+  "hinglish_cmu_28jul": {
+   "n": 200,
+   "words": 2612,
+   "chars": 13802,
+   "tok": {
+    "v1.2 (64k)": {
+     "tokens": 6112,
+     "fertility": 2.339969372128637,
+     "tok_per_100char": 44.28343718301696,
+     "bytefallback_pct": 0.0,
+     "roundtrip_ok": 200,
+     "n": 200
+    },
+    "sarvam-1": {
+     "tokens": 5661,
+     "fertility": 2.167304747320061,
+     "tok_per_100char": 41.01579481234604,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 200,
+     "n": 200
+    },
+    "sarvam-30b": {
+     "tokens": 3592,
+     "fertility": 1.3751914241960184,
+     "tok_per_100char": 26.025213737139545,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 200,
+     "n": 200
+    },
+    "Krutrim-2": {
+     "tokens": 4227,
+     "fertility": 1.6183001531393568,
+     "tok_per_100char": 30.625996232430083,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 200,
+     "n": 200
+    },
+    "Qwen3-14B": {
+     "tokens": 4296,
+     "fertility": 1.6447166921898928,
+     "tok_per_100char": 31.12592377916244,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 200,
+     "n": 200
+    }
+   }
+  },
+  "hinglish_findnitai_human": {
+   "n": 600,
+   "words": 9278,
+   "chars": 49696,
+   "tok": {
+    "v1.2 (64k)": {
+     "tokens": 22051,
+     "fertility": 2.3766975641302004,
+     "tok_per_100char": 44.3717804249839,
+     "bytefallback_pct": 0.0,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "sarvam-1": {
+     "tokens": 20980,
+     "fertility": 2.261263203276568,
+     "tok_per_100char": 42.216677398583386,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "sarvam-30b": {
+     "tokens": 13430,
+     "fertility": 1.447510239275706,
+     "tok_per_100char": 27.024307791371537,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "Krutrim-2": {
+     "tokens": 15732,
+     "fertility": 1.6956240569088166,
+     "tok_per_100char": 31.656471345782357,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    },
+    "Qwen3-14B": {
+     "tokens": 16079,
+     "fertility": 1.7330243586979952,
+     "tok_per_100char": 32.354716677398585,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 600,
+     "n": 600
+    }
+   }
+  },
+  "english_flores200": {
+   "n": 200,
+   "words": 4384,
+   "chars": 26763,
+   "tok": {
+    "v1.2 (64k)": {
+     "tokens": 9564,
+     "fertility": 2.1815693430656933,
+     "tok_per_100char": 35.735904046631546,
+     "bytefallback_pct": 0.12547051442910917,
+     "roundtrip_ok": 200,
+     "n": 200
+    },
+    "sarvam-1": {
+     "tokens": 6549,
+     "fertility": 1.4938412408759123,
+     "tok_per_100char": 24.470350857527183,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 200,
+     "n": 200
+    },
+    "sarvam-30b": {
+     "tokens": 5597,
+     "fertility": 1.2766879562043796,
+     "tok_per_100char": 20.913201061166536,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 200,
+     "n": 200
+    },
+    "Krutrim-2": {
+     "tokens": 5718,
+     "fertility": 1.3042883211678833,
+     "tok_per_100char": 21.365317789485484,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 200,
+     "n": 200
+    },
+    "Qwen3-14B": {
+     "tokens": 5653,
+     "fertility": 1.2894616788321167,
+     "tok_per_100char": 21.122445166834808,
+     "bytefallback_pct": null,
+     "roundtrip_ok": 200,
+     "n": 200
+    }
+   }
+  }
+ }
+}
