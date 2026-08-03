@@ -12,10 +12,37 @@ code-switching penalty found on 28 July is specific to v1.2 or general.
 ## A necessary caveat, stated once
 
 **Sarvam and Krutrim are full LLM tokenizers carrying English, code and multilingual
-coverage in one vocabulary, while v1.2 spends 91.94 percent of its 64,000 slots on Indic
+coverage in one vocabulary, while v1.2 spends 92.25 percent of its 64,000 slots on Indic
 aksharas. A native-script win therefore partly reflects specialisation rather than
 engineering alone.** The comparison is still worth making, because it is the comparison a
 reader will make, but it is not like for like.
+
+### Vocabulary classifier
+
+An earlier version of this file published **91.94 percent** for the Indic share. That figure
+could not be reproduced under thirteen candidate classification rules, and no derivation for
+it was recorded anywhere in this repository. **It is superseded by 92.25 percent**, measured
+under the rule stated below so the number is checkable rather than asserted.
+
+> Decode each vocabulary piece back through the PUA map, strip the SentencePiece meta symbol
+> U+2581, then classify by **first match in this order**: `special` (`<unk>`, `<s>`, `</s>`,
+> `<pad>`), `byte_fallback` (matches `<0xXX>`), `indic` (decoded text contains at least one
+> codepoint in U+0900 to U+0D7F), `latin` (no Indic, contains at least one ASCII letter),
+> `digit` (no Indic and no ASCII letter, contains a digit), `other` (everything else).
+> The denominator is always the full 64,000 slots. A piece mixing Indic and Latin counts as
+> `indic`, since only Indic text can use that slot.
+
+Applied to the shipped v1.2 model:
+
+| bucket | pieces | share |
+|---|---:|---:|
+| indic | 59,041 | 92.25% |
+| latin | 2,251 | 3.52% (mean length 3.44 characters) |
+| other | 1,926 | 3.01% |
+| digit | 522 | 0.82% |
+| byte_fallback | 256 | 0.40% |
+| special | 4 | 0.01% |
+| **total** | **64,000** | **100%** |
 
 ## Tokenizers
 
@@ -71,6 +98,20 @@ Fertility (tokens per word), lower is better. Round-trip is byte-identical
 
 Byte-fallback, v1.2 only: Devanagari 0.017, Gurmukhi 0.040, Tamil 0.000, Telugu 0.018,
 Bengali 0.000, Kannada 0.009 percent. All others n/a (byte-level BPE).
+
+Tokens per 100 characters, same run. This is included for cross-script comparison only:
+words differ in length across scripts, so tokens per word is not comparable between rows,
+whereas tokens per 100 characters is. **It gives identical tokenizer-to-tokenizer ratios
+within a row**, so it changes no conclusion drawn from the fertility table above.
+
+| script | v1.2 (64k) | sarvam-1 (68k) | sarvam-30b (262k) | Krutrim-2 (131k) | Qwen3-14B (152k) |
+|---|---:|---:|---:|---:|---:|
+| Devanagari | **26.881** | 27.429 | 27.111 | 38.146 | 93.053 |
+| Gurmukhi | **28.048** | 32.670 | 31.668 | 61.884 | 150.637 |
+| Tamil | **21.258** | 23.609 | 25.841 | 39.328 | 109.534 |
+| Telugu | **25.573** | 27.357 | 29.735 | 47.475 | 145.802 |
+| Bengali | 27.169 | 31.217 | **25.449** | 44.241 | 107.573 |
+| Kannada | **23.989** | 27.700 | 29.625 | 44.516 | 138.417 |
 
 Round-trip: **v1.2 is 1,012/1,012 on all six scripts.** sarvam-30b and Krutrim-2 are also
 perfect. sarvam-1 loses a few lines (Devanagari 1,007, Telugu 1,001, Kannada 999), so

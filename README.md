@@ -148,7 +148,7 @@ Against sarvam-30b (262,144 slots, 4.1x the budget), v1.2 wins five of six: Deva
 percent.
 
 **One caveat, stated plainly: sarvam and Krutrim are full LLM tokenizers carrying
-English, code and multilingual coverage in one vocabulary, while v1.2 spends 91.94
+English, code and multilingual coverage in one vocabulary, while v1.2 spends 92.25
 percent of its 64,000 slots on Indic aksharas. A native-script win therefore partly
 reflects that specialisation, not engineering alone.**
 
@@ -176,8 +176,8 @@ gives exact reconstruction. This tokenizer chooses the latter.
 
 This tokenizer is built for native Brahmic script and the numbers above reflect that. On
 Latin-script input the advantage inverts, and this is a design consequence rather than a
-bug: 91.94 percent of the vocabulary is Indic aksharas, which leaves little room for
-Latin pieces.
+bug: 92.25 percent of the vocabulary is Indic aksharas, leaving 2,251 slots (3.52 percent)
+for Latin pieces at a mean length of 3.44 characters.
 
 On Dakshina human romanizations, 600 matched sentence pairs per language, v1.2 uses more
 tokens than Qwen3-14B: romanized Hindi +23.4, Punjabi +16.0, Tamil +12.8 percent.
@@ -236,6 +236,7 @@ Every number above traces to a results file in this repository:
 - `benchmark_2026_07/results_bengali_diagnostic.md` normalization robustness
 - `benchmark_2026_07/results_qwen_roundtrip_check.md` Qwen3 round-trip verified against stock
 - `benchmark_2026_07/results_dakshina_romanized.md` romanized Indic on Dakshina
+- `benchmark_2026_07/results_arm_n_normalization.md` whether corpus rebalancing can close the precomposed nukta penalty
 - `benchmark_2026_07/groundtruth_20260801/` the scripts and raw output behind the competitor numbers
 
 Evaluation corpora are third-party and are not vendored here. They are referenced by
@@ -332,6 +333,11 @@ NFD input goes the other way and costs tokens, up to 33.61 percent on Kannada. T
 not specific to this tokenizer: sarvam-1 degrades 37.91 percent on the same input, so it
 is a general Brahmic-NFD effect. Under NFD, Bengali is the single cell where v1.2 loses
 to the budget-matched sarvam-1, by 1.85 percent.
+
+Corpus rebalancing was tested as an alternative at three levels and recovers at most 41.7
+percent of the Gurmukhi penalty while degrading other scripts, so the NFC recommendation
+above is a measured conclusion rather than an untested workaround. See
+`benchmark_2026_07/results_arm_n_normalization.md`.
 
 Detail in `benchmark_2026_07/results_bengali_diagnostic.md`.
 
