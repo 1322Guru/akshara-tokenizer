@@ -383,6 +383,17 @@ Akshara-based segmentation is one instance of a more general idea: tokenizing on
 orthographic units a writing system is built from, rather than on bytes. The same
 principle extends to other syllable-block writing systems.
 
+## Related projects
+
+- Live demo of this tokenizer: https://akshara.iyraproject.com
+- IYRA: https://iyraproject.com
+- NyayaBench: https://nyayabench.com
+
+IYRA is a separate project by the same author. IYRA does not use this tokenizer: it
+runs on the Qwen3-14B tokenizer. AksharaTokenizer is developed independently and
+shares no runtime code with IYRA. NyayaBench is the benchmark used to evaluate IYRA
+and is likewise unrelated to this tokenizer.
+
 ## Patent and Copyright
 
 Patent pending: Indian provisional patent application 202611071450.
