@@ -1,12 +1,15 @@
 # IYRA Akshara Tokenizer (IAT)
 
+[Benchmark results](https://github.com/1322Guru/akshara-tokenizer/tree/main/benchmark_2026_07)
+
 Linguistically-correct tokenization for Brahmic (Indic) scripts. It has two layers:
 a rule-based Akshara segmenter that never splits an orthographic syllable, and a
 trained SentencePiece model on top of it. Version 1.2 makes the model layer lossless:
 `decode(encode(text))` returns the original text, byte for byte.
 
 Against sarvam-1, the closest Indic-specific tokenizer by vocabulary budget, v1.2 uses
-fewer tokens on all six supported scripts. See Fertility below.
+fewer tokens on all six supported scripts (FLORES-200 devtest, tokens per whitespace
+word). See Fertility below.
 
 ## Supported Scripts
 
