@@ -1,0 +1,130 @@
+{
+  "per_script": {
+    "devanagari": {
+      "chars": 132091,
+      "words": 25643,
+      "lines": 1012,
+      "v12_tokens": 35235,
+      "whisper_tokens": 136599,
+      "v12_fert": 1.374059197441797,
+      "whisper_fert": 5.326950824786492,
+      "ratio": 3.876798637718178,
+      "v12_per100char": 26.674792377981845,
+      "whisper_per100char": 103.41279875237525,
+      "roundtrip_ok": 1012,
+      "roundtrip_total": 1012,
+      "roundtrip_fail_examples": []
+    },
+    "gurmukhi": {
+      "chars": 134437,
+      "words": 25906,
+      "lines": 1012,
+      "v12_tokens": 37423,
+      "whisper_tokens": 258599,
+      "v12_fert": 1.4445688257546514,
+      "whisper_fert": 9.982204894619008,
+      "ratio": 6.910162199716752,
+      "v12_per100char": 27.83683063442356,
+      "whisper_per100char": 192.35701480991096,
+      "roundtrip_ok": 1012,
+      "roundtrip_total": 1012,
+      "roundtrip_fail_examples": []
+    },
+    "tamil": {
+      "chars": 155145,
+      "words": 16775,
+      "lines": 1012,
+      "v12_tokens": 32766,
+      "whisper_tokens": 133178,
+      "v12_fert": 1.9532637853949328,
+      "whisper_fert": 7.939076005961252,
+      "ratio": 4.0645180980284445,
+      "v12_per100char": 21.11959779561056,
+      "whisper_per100char": 85.84098746334075,
+      "roundtrip_ok": 1012,
+      "roundtrip_total": 1012,
+      "roundtrip_fail_examples": []
+    },
+    "telugu": {
+      "chars": 133517,
+      "words": 16938,
+      "lines": 1012,
+      "v12_tokens": 33886,
+      "whisper_tokens": 240597,
+      "v12_fert": 2.000590388475617,
+      "whisper_fert": 14.204569606801275,
+      "ratio": 7.100188868559287,
+      "v12_per100char": 25.379539684085174,
+      "whisper_per100char": 180.19952515410023,
+      "roundtrip_ok": 1012,
+      "roundtrip_total": 1012,
+      "roundtrip_fail_examples": []
+    },
+    "bengali": {
+      "chars": 130054,
+      "words": 19506,
+      "lines": 1012,
+      "v12_tokens": 35059,
+      "whisper_tokens": 255601,
+      "v12_fert": 1.7973444068491746,
+      "whisper_fert": 13.10371167845791,
+      "ratio": 7.290595852705439,
+      "v12_per100char": 26.957263905762222,
+      "whisper_per100char": 196.5345164316361,
+      "roundtrip_ok": 1012,
+      "roundtrip_total": 1012,
+      "roundtrip_fail_examples": []
+    },
+    "kannada": {
+      "chars": 139152,
+      "words": 16100,
+      "lines": 1012,
+      "v12_tokens": 33139,
+      "whisper_tokens": 228677,
+      "v12_fert": 2.0583229813664596,
+      "whisper_fert": 14.203540372670808,
+      "ratio": 6.900540149069073,
+      "v12_per100char": 23.81496493043578,
+      "whisper_per100char": 164.33612165114408,
+      "roundtrip_ok": 1012,
+      "roundtrip_total": 1012,
+      "roundtrip_fail_examples": []
+    },
+    "english": {
+      "chars": 132978,
+      "words": 21901,
+      "lines": 1012,
+      "v12_tokens": 47099,
+      "whisper_tokens": 27991,
+      "v12_fert": 2.150541071183964,
+      "whisper_fert": 1.2780694945436282,
+      "ratio": 0.5943013652094524,
+      "v12_per100char": 35.418640677405286,
+      "whisper_per100char": 21.049346508445005,
+      "roundtrip_ok": 1012,
+      "roundtrip_total": 1012,
+      "roundtrip_fail_examples": []
+    }
+  },
+  "median_ratio": 6.905351174392912,
+  "verdict": "PURSUE",
+  "guard": {
+    "with": 106,
+    "without": 103,
+    "extra_tokens": [
+      "<|startoftranscript|>",
+      "<|notimestamps|>",
+      "<|endoftext|>"
+    ],
+    "line": "उन्होंने कहा “कि अब हमारे पास 4 महीने उम्र वाले चूहे हैं जिन्हें मधुमेह नहीं है जो मधुमेह के रोगी थे। ”"
+  },
+  "normalizer_field": null,
+  "qwen3_14b_context": {
+    "devanagari": 4.7566,
+    "gurmukhi": 7.7583,
+    "tamil": 10.0643,
+    "telugu": 11.406,
+    "bengali": 7.1165,
+    "kannada": 11.8763
+  }
+}
